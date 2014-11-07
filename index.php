@@ -37,7 +37,7 @@ function beforeSubmit(){
 		
 		if( !$('#imageInput').val()) //check empty input filed
 		{
-			$("#output").html("Are you kidding me?");
+			$("#output").html("Du m&aring; velge en fil. ");
 			return false
 		}
 		
@@ -51,14 +51,14 @@ function beforeSubmit(){
             case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
                 break;
             default:
-                $("#output").html("<b>"+ftype+"</b> Unsupported file type!");
+                $("#output").html("Ugyldig filtype. Lovlige formater: jpeg, png eller gif");
 				return false
         }
 		
 		//Allowed file size is less than 1 MB (1048576)
 		if(fsize>1048576) 
 		{
-			$("#output").html("<b>"+bytesToSize(fsize) +"</b> Too big Image file! <br />Please reduce the size of your photo using an image editor.");
+			$("#output").html("<b>"+bytesToSize(fsize) +"</b> Bildefilen er for stor! ");
 			return false
 		}
 				
@@ -69,7 +69,7 @@ function beforeSubmit(){
 	else
 	{
 		//Output error to older browsers that do not support HTML5 File API
-		$("#output").html("Please upgrade your browser, because your current browser lacks some new features we need!");
+		$("#output").html("Nettleseren din er utdatert. Vennligst oppdater!");
 		return false;
 	}
 }
